@@ -27,13 +27,13 @@ export default {
         return{
             filmList : [],
             filmFilter : [],
-
+            getQuery : '',
         }
     },
     methods : {
 
         getFilmList(){
-            axios.get('https://api.themoviedb.org/3/movie/550?api_key=b9ee4557c1925ad6441d410a26f3ca26&query=${filmSearch}')
+            axios.get('https://api.themoviedb.org/3/search/movie?api_key=b9ee4557c1925ad6441d410a26f3ca26&query=${getQuery}')
             .then((result) => {
                 console.table(result.data.results)
                 this.filmList = result.data.results;
