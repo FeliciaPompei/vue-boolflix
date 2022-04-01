@@ -1,11 +1,12 @@
 <template>
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title"> {{film.title}} </h5>
+    <div>
+        <!-- <div>
+            <h5 class="card-title">{{film.title}} </h5>
             <p class="card-text"> {{film.original_title}} </p>
-            <p class="card-text"> {{film.original_language} </p>
-            <p class="card-text"> {{film.vote_average} </p>
-        </div>
+            <p class="card-text"> {{film.original_language}} </p>
+            <p class="card-text"> {{film.vote_average}} </p> -->
+        <!-- </div> -->
+        {{film}}
     </div>
 </template>
 
