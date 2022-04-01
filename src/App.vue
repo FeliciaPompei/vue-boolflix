@@ -1,7 +1,11 @@
 <template>
   <div id="app">
-    <Header/>
-    <FilmList/>
+    <Header
+    @filmSearchInput = 'filmRequest'
+    />
+    <FilmList
+    :filmSearch = 'filmSearch'
+    />
   </div>
 </template>
 
@@ -14,6 +18,16 @@ export default {
   components: {
     Header,
     FilmList
+  },
+  data : function(){
+    return{
+      filmSearch : '',
+    }
+  },
+  methods : {
+    filmRequest(filmSearchInput){
+      this.filmSearch = filmSearchInput;
+    }
   }
 }
 </script>

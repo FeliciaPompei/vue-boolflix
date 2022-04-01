@@ -4,7 +4,8 @@
             <div class="col-4">
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1"></span>
-                    <input type="text" class="form-control" placeholder="Search your favourite film">
+                    <input type="text" class="form-control" placeholder="Search your favourite film" v-model="filmSearch">
+                    <button class="btn btn-info" @click="$emit('filmSearchInput', userFilmSearch)">Search</button>
                 </div>
             </div>
         </div>
@@ -13,7 +14,12 @@
 
 <script>
 export default {
-    name:'IndexHeader'
+    name:'IndexHeader',
+    data : function(){
+        return {
+            userFilmSearch : '',
+        }
+    }
 }
 </script>
 
