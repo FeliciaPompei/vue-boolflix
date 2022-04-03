@@ -26,15 +26,10 @@ export default {
       filmList : null,
     }
   },
-    updated(){
-    this.getFilmList();
-  },
   methods : {
     filmRequest(query){
       this.filmSearch = query;
-      console.log(this.filmSearch)
-    },
-    getFilmList(){
+      console.log(this.filmSearch);
       axios.get(`https://api.themoviedb.org/3/search/movie?api_key=b9ee4557c1925ad6441d410a26f3ca26&language=it-IT&query=${this.filmSearch}`)
       .then((result) => {
           this.filmList = result.data.results;
@@ -42,8 +37,8 @@ export default {
       .catch((error) => {
           console.error(error);
       })
-    },
-  },
+    }
+  }
 }
 </script>
 
