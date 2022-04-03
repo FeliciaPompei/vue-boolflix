@@ -26,27 +26,24 @@ export default {
       filmList : null,
     }
   },
+    updated(){
+    this.getFilmList();
+  },
   methods : {
-    filmRequest(filmSearchInput){
-      this.filmSearch = filmSearchInput;
+    filmRequest(query){
+      this.filmSearch = query;
       console.log(this.filmSearch)
     },
     getFilmList(){
-      axios.get('https://api.themoviedb.org/3/search/movie?api_key=b9ee4557c1925ad6441d410a26f3ca26&language=it-IT&query=lord')
+      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=b9ee4557c1925ad6441d410a26f3ca26&language=it-IT&query=${this.filmSearch}`)
       .then((result) => {
-          console.table(result.data.results);
           this.filmList = result.data.results;
-          console.log(this.filmList)
       })
       .catch((error) => {
           console.error(error);
       })
     },
   },
-  mounted(){
-    this.getFilmList();
-  }
-
 }
 </script>
 
