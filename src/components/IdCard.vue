@@ -1,5 +1,5 @@
 <template>
-    <div class="card">
+    <div class="card m-3">
         <div class="card-image" v-if="idCard.poster_path !== null">
             <img :src="`http://image.tmdb.org/t/p/w185${idCard.poster_path}`" class="card-img-top" :alt="idCard.original_title">
         </div>
@@ -8,8 +8,8 @@
         </div>
         
         <div class="card-body">
-            <h5 class="card-title">{{idCard.original_title}} || {{idCard.original_name}} </h5>
-        <p class="card-text"> {{idCard.original_title}} || {{idCard.original_name}}  </p>
+            <h5 class="card-title">{{idCard.original_title}}  {{idCard.original_name}} </h5>
+        <p class="card-text"> {{idCard.original_title}}  {{idCard.original_name}}  </p>
         <flag :iso="flagTransform" />
         <p class="card-text"> {{voteAverage}} </p>
         </div>
@@ -45,6 +45,20 @@ export default {
 <style lang="scss" scoped>
 .card{
     background-color:palegreen;
-    width:200px;
+    width:calc(100% / 4 - 4rem);
+    position:relative;
+    .card-body {
+        display:none;
+        background-color:rgba(0, 0, 0, 0.8);
+        color:white;
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+    }
+}
+.card:hover .card-body{
+    display:block;
 }
 </style>
