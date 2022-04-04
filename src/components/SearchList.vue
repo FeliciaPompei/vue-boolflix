@@ -5,7 +5,9 @@
             <div class="col-12 d-flex flex-wrap">
                 <FilmCard v-for="(film, index) in filmList" 
                 :key="index" 
-                :filmItem ="film" />
+                :filmItem ="film"
+                
+                />
             </div>
         </div>
         <div class="row justify-content-center" :class="(tvSerieList == '') ? 'd-none' : 'd-block'">
@@ -13,7 +15,8 @@
             <div class="col-12 d-flex flex-wrap">
                 <TVSeries  v-for="(series, index) in tvSerieList" 
                 :key="index" 
-                :seriesItem ="series"  />
+                :seriesItem ="series" 
+                />
             </div>
         </div>
     </main>

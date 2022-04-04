@@ -5,7 +5,7 @@
             <h5 class="card-title">{{filmItem.original_title}} </h5>
         <p class="card-text"> {{filmItem.original_title}} </p>
         <p class="card-text"> {{filmItem.original_language}} </p>
-        <p class="card-text"> {{selectVote}} </p>
+        <p class="card-text"> {{voteAverage}} </p>
         </div>
     </div>
 </template>
@@ -15,7 +15,7 @@ export default {
     name:'FilmCard',
     props : ['filmItem'],
     computed : {
-        selectVote() {
+        voteAverage() {
             const vote = this.filmItem.vote_average;
             if (vote < 2) return "★";
             if (vote > 2 && vote < 4) return "★★";
