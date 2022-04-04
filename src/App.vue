@@ -59,3 +59,9 @@ body{
   background-color: rgb(12, 12, 81);
 }
 </style>
+
+
+//<img
+      :src="`http://image.tmdb.org/t/p/w185${itemData.poster_path}`"
+      :alt="itemData.title"
+    />
