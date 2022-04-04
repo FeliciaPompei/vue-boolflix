@@ -3,23 +3,43 @@
     <Header
     @filmSearchInput = 'userRequest'
     />
-    <SearchList
-    :filmList = 'filmList'
-    :tvSerieList = 'tvSerieList'
-    />
+    <div class="row justify-content-center" :class="(filmList == '') ? 'd-none' : 'd-block'">
+            <h1 class="text-white">Movies</h1>
+            <div class="col-12 d-flex flex-wrap">
+                <IdCard v-for="(film, index) in filmList" 
+                :key="index" 
+                :idCard ="film"
+                />
+            </div>
+        </div>
+        <div class="row justify-content-center" :class="(filmList == '') ? 'd-block' : 'd-none'">
+            <h1 class="text-white">There is no movies with that name</h1>
+        </div>
+        <div class="row justify-content-center" :class="(tvSerieList == '') ? 'd-none' : 'd-block'">
+            <h1 class="text-white">TV Series</h1>
+            <div class="col-12 d-flex flex-wrap">
+                <IdCard   v-for="(series, index) in tvSerieList" 
+                :key="index" 
+                :idCard ="series" 
+                />
+            </div>
+        </div>
+        <div class="row justify-content-center" :class="(tvSerieList == '') ? 'd-block' : 'd-none'">
+            <h1 class="text-white">There is no series with that name</h1>
+        </div>
   </div>
 </template>
 
 <script>
 import Header from './components/Header.vue';
-import SearchList from './components/SearchList.vue';
+import IdCard from './components/IdCard.vue';
 import axios from 'axios';
 
 export default {
   name: 'App',
   components: {
     Header,
-    SearchList
+    IdCard
   },
   data : function(){
     return{

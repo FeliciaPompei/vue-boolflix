@@ -4,7 +4,7 @@
             <div class="col-4">
                 <div class="input-group mb-3">
                     
-                    <span class="input-group-text" id="basic-addon1"><span class="flag-icon flag-icon-gr"></span></span>
+                    <span class="input-group-text" id="basic-addon1"></span>
                     <input type="text" class="form-control" placeholder="Search your favourite film" 
                     v-model="userFilmSearch" 
                     @keydown.enter="$emit('filmSearchInput', userFilmSearch)">
