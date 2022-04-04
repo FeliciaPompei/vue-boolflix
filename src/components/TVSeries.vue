@@ -4,7 +4,7 @@
         <div class="card-body">
             <h5 class="card-title">{{seriesItem.name}} </h5>
         <p class="card-text"> {{seriesItem.original_name}} </p>
-        <p class="card-text" :class="languageFlag"></p>
+        <flag :iso="seriesItem.original_language" />
         <p class="card-text"> {{voteAverage}} </p>
         </div>
     </div>
@@ -18,20 +18,6 @@ export default {
         return{
             flag : '',
         }
-    },
-    methods :{
-        languageFlag() {
-            if (this.seriesItem.original_language === "it") {
-                return "fi fi-it";
-            } else if (this.seriesItem.original_language === "en") {
-                return "fi fi-us";
-            } else {
-                return "fi fi-xx";
-            }
-        },
-    },
-    mounted(){
-        this.hasFlag
     },
     computed : {
         voteAverage() {

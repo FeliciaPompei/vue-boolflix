@@ -4,7 +4,8 @@
         <div class="card-body">
             <h5 class="card-title">{{filmItem.original_title}} </h5>
         <p class="card-text"> {{filmItem.original_title}} </p>
-        <p class="card-text"> {{filmItem.original_language}} </p>
+        <p><flag :class="filmItem.original_language" /></p>
+        <!-- <p class="card-text"> {{filmItem.original_language}} </p> -->
         <p class="card-text"> {{voteAverage}} </p>
         </div>
     </div>
