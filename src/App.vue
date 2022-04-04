@@ -3,8 +3,9 @@
     <Header
     @filmSearchInput = 'userRequest'
     />
-    <main class="container">
-      <div class="row justify-content-center" :class="(filmList == '') ? 'd-none' : 'd-block'">
+    <main>
+      <div class="container" v-if="filmList">
+        <div class="row justify-content-center" :class="(filmList == '') ? 'd-none' : 'd-block'">
         <h1 class="text-white">Movies</h1>
         <div class="col-12 d-flex flex-wrap">
             <IdCard v-for="(film, index) in filmList" 
@@ -28,6 +29,10 @@
       <div class="row justify-content-center" :class="(tvSerieList == '') ? 'd-block' : 'd-none'">
         <h1 class="text-white">There is no series with that name</h1>
       </div>
+      </div>
+      <div v-else>
+        <Loader/>
+      </div>
     </main>
   </div>
 </template>
@@ -35,13 +40,15 @@
 <script>
 import Header from './components/Header.vue';
 import IdCard from './components/IdCard.vue';
+import Loader from './components/Loader.vue';
 import axios from 'axios';
 
 export default {
   name: 'App',
   components: {
     Header,
-    IdCard
+    IdCard,
+    Loader
   },
   data : function(){
     return{
