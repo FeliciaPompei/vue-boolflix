@@ -21,7 +21,8 @@
 
 <script>
 import FilmCard from './FilmCard.vue';
-import TVSeries from './TVSeries.vue'
+import TVSeries from './TVSeries.vue';
+
 export default {
     name:'IndexSearchList',
     props:{'filmList' : Array,
