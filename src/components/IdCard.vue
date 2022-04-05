@@ -1,15 +1,15 @@
 <template>
     <div class="card m-3">
         <div class="card-image" v-if="idCard.poster_path !== null">
-            <img :src="`http://image.tmdb.org/t/p/w185${idCard.poster_path}`" class="card-img-top" :alt="idCard.original_title">
+            <img class="card-img-top img-fluid"  :src="`http://image.tmdb.org/t/p/w185${idCard.poster_path}`" :alt="idCard.original_title">
         </div>
         <div v-else>
-            <img src="https://adriaticaindustriale.it/wp-content/uploads/2020/02/not-found.png" class="card-img-top" :alt="idCard.name || idCard.title">
+            <img class="card-img-top img-fluid" src="https://adriaticaindustriale.it/wp-content/uploads/2020/02/not-found.png"  :alt="idCard.name || idCard.title">
         </div>
         
-        <div class="card-body">
+        <div class="card-body text-white">
             <h5 class="card-title">{{idCard.original_title}}  {{idCard.original_name}} </h5>
-        <p class="card-text"> {{idCard.original_title}}  {{idCard.original_name}}  </p>
+        <p class="card-text" v-show="idCard.original_title !== idCard.original_title"> {{idCard.original_title}}  {{idCard.original_name}}  </p>
         <flag :iso="flagTransform" />
         <p class="card-text"> {{voteAverage}} </p>
         </div>
@@ -44,13 +44,16 @@ export default {
 
 <style lang="scss" scoped>
 .card{
-    background-color:palegreen;
     width:calc(100% / 4 - 4rem);
     position:relative;
+    .card-img-top{
+        width:100%;
+        height:100%;
+        object-fit: cover;
+    }
     .card-body {
         display:none;
         background-color:rgba(0, 0, 0, 0.8);
-        color:white;
         position:absolute;
         top:0;
         left:0;
