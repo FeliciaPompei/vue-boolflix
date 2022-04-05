@@ -6,12 +6,13 @@
         <div v-else>
             <img class="card-img-top img-fluid" src="https://adriaticaindustriale.it/wp-content/uploads/2020/02/not-found.png"  :alt="idCard.name || idCard.title">
         </div>
-        
         <div class="card-body text-white">
-            <h5 class="card-title">{{idCard.original_title}}  {{idCard.original_name}} </h5>
-        <p class="card-text" v-show="idCard.original_title !== idCard.original_title"> {{idCard.original_title}}  {{idCard.original_name}}  </p>
-        <flag :iso="flagTransform" />
-        <p class="card-text"> {{voteAverage}} </p>
+            <h1 class="card-title my-font-color">{{idCard.original_title}}  {{idCard.original_name}} </h1>
+            <p class="card-text" v-show="idCard.original_title !== idCard.original_title"> {{idCard.original_title}}  {{idCard.original_name}}</p>
+            <p class="card-text">vote :{{voteAverage}} </p>
+            <p>Lauguage: <flag :iso="flagTransform" /></p>
+            <p>Overview: {{idCard.overview}} </p>
+            
         </div>
     </div>
 </template>
@@ -50,6 +51,7 @@ export default {
         width:100%;
         height:100%;
         object-fit: cover;
+        
     }
     .card-body {
         display:none;
@@ -59,6 +61,11 @@ export default {
         left:0;
         width:100%;
         height:100%;
+        font-size: 1.2rem;
+        overflow:auto;
+        .my-font-color{
+            color: #01E165;
+        }
     }
 }
 .card:hover .card-body{

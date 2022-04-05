@@ -4,10 +4,12 @@
     @filmSearchInput = 'userRequest'
     />
     <main>
-      <div class="container" v-if="filmList">
-        <div class="row justify-content-center" :class="(filmList == '') ? 'd-none' : 'd-block'">
-          <h1 class="text-white">Movies</h1>
-          <div class="col-12 d-flex flex-wrap">
+      <div class="container-fluid" v-if="filmList">
+        <div class="row justify-content-center mb-5" :class="(filmList == '') ? 'd-none' : 'd-block'">
+          <div class="film-type-list mb-4">
+            <h1 class="m-0">Movies</h1>
+          </div>
+          <div class="col-12 d-flex flex-wrap justify-content-center">
               <IdCard v-for="(film, index) in filmList" 
               :key="index" 
               :idCard ="film"
@@ -18,7 +20,9 @@
             <h1 class="text-white">There is no movies with that name</h1>
         </div>
         <div class="row justify-content-center" :class="(tvSerieList == '') ? 'd-none' : 'd-block'">
-          <h1 class="text-white">TV Series</h1>
+          <div class="film-type-list mb-4 justify-content-center">
+            <h1 class="m-0">TV Series</h1>
+          </div>
           <div class="col-12 d-flex flex-wrap">
             <IdCard   v-for="(series, index) in tvSerieList" 
             :key="index" 
@@ -40,17 +44,19 @@
             </div>
           </div>
         </div>
-        <div class="container">
-        <div class="row justify-content-center">
-          <h1 class="text-white">Top Rated</h1>
-          <div class="col-12 d-flex flex-wrap">
-              <IdCard v-for="(film, index) in reacentFilmList" 
-              :key="index" 
-              :idCard ="film"
-              />
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="film-type-list mb-4 me-auto">
+            <h1 class="m-0">Top Rated</h1>
+          </div>
+            <div class="col-12 d-flex flex-wrap justify-content-center">
+                <IdCard v-for="(film, index) in reacentFilmList" 
+                :key="index" 
+                :idCard ="film"
+                />
+            </div>
           </div>
         </div>
-      </div>
       </div>
     </main>
   </div>
@@ -134,7 +140,19 @@ export default {
 
 <style lang="scss">
 @import'./assets/styles/style.scss';
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 body{
   background-color:#031732;
+  font-family: 'Bebas Neue', cursive;
+
+  .film-type-list{
+    background-color:#01E165;
+    width:50%;
+    padding:0.5rem 1rem;
+    
+    h1{
+      font-size: 3rem;
+    }
+  }
 }
 </style>
