@@ -6,8 +6,9 @@
             </div>
             <div class="col-3">
                 <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-magnifying-glass"></i></span>
                     <input type="text" class="form-control" placeholder="Search your favourite film" 
-                    v-model="userFilmSearch" 
+                    v-model.trim="userFilmSearch" 
                     @keydown.enter="$emit('filmSearchInput', userFilmSearch)">
                 </div>
             </div>

@@ -4,7 +4,7 @@
             <div v-for="(element, index) in sliderImg" :key="index"> 
                 <!-- Add v-for -->
                 <div class= "img-wrapper" :class="(index == sliderIndex) ? 'd-block' : 'd-none' ">
-                    <img class="card-img-top img-fluid"  :src="`http://image.tmdb.org/t/p/w185${element.poster_path}`" :alt="element.original_title">
+                    <img class="card-img-top img-fluid"  :src="`http://image.tmdb.org/t/p/w185${element.backdrop_path}`" :alt="element.original_title">
                 </div>
             </div>
             <div class="buttons text-white">
@@ -62,7 +62,6 @@ export default {
     background-color: green;
     position:relative;
     img{
-        width:100%;
         height:60vh;;
         object-fit: cover;
     }

@@ -35,7 +35,7 @@
           <div class="row">
             <div class="col-12 p-0">
               <Slider
-              :sliderImg = "reacentFilmList"
+              :sliderImg = "sliderFilmList"
               />
             </div>
           </div>
@@ -75,6 +75,7 @@ export default {
       filmList : null,
       tvSerieList : null,
       reacentFilmList : null,
+      sliderFilmList : null,
     }
   },
   methods : {
@@ -88,8 +89,19 @@ export default {
           console.error(error);
       });
     },
+    getPopularFilm(){
+      axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=b9ee4557c1925ad6441d410a26f3ca26&language=en-US&page=1`)
+      .then((result) => {
+          this.sliderFilmList = result.data.results;
+          console.log(this.sliderFilmList)
+      })
+      .catch((error) => {
+          console.error(error);
+      });
+    },
     userRequest(query){
-      this.userSearch = query;
+      if(query != ''){
+        this.userSearch = query;
       console.log(this.userSearch);
       axios.get(`https://api.themoviedb.org/3/search/movie?api_key=b9ee4557c1925ad6441d410a26f3ca26&query=${this.userSearch}`)
       .then((result) => {
@@ -107,10 +119,15 @@ export default {
       .catch((error) => {
           console.error(error);
       })
+      } else{
+        this.filmList = '';
+        this.tvSerieList = '';
+      }
     }
   },
   created(){
     this.getReacentFilmList()
+    this.getPopularFilm()
   }
 }
 </script>
