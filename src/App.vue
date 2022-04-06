@@ -5,34 +5,40 @@
     />
     <main>
       <div class="container-fluid" v-if="filmList">
-        <div class="row justify-content-center mb-5" :class="(filmList == '') ? 'd-none' : 'd-block'">
-          <div class="film-type-list mb-4">
-            <h1 class="m-0">Movies</h1>
+        <div class="row justify-content-center mb-5">
+          <div class="col-12">
+            <div class="film-type-list mb-4">
+              <h1 class="m-0">Movies</h1>
+            </div>
           </div>
-          <div class="col-12 d-flex flex-wrap justify-content-center">
+          <div class="col-12 d-flex flex-wrap justify-content-center" :class="(filmList == '') ? 'd-none' : 'd-block'">
               <IdCard v-for="(film, index) in filmList" 
               :key="index" 
               :idCard ="film"
               />
           </div>
-        </div>
-        <div class="row justify-content-center" :class="(filmList == '') ? 'd-block' : 'd-none'">
+          <div class="row justify-content-center" :class="(filmList == '') ? 'd-block' : 'd-none'">
             <h1 class="text-white">There is no movies with that name</h1>
-        </div>
-        <div class="row justify-content-center" :class="(tvSerieList == '') ? 'd-none' : 'd-block'">
-          <div class="film-type-list mb-4 justify-content-center">
-            <h1 class="m-0">TV Series</h1>
           </div>
-          <div class="col-12 d-flex flex-wrap">
+        </div>
+        
+        <div class="row justify-content-center" >
+          <div class="col-12">
+            <div class="film-type-list mb-4">
+              <h1 class="m-0">tv series</h1>
+            </div>
+          </div>
+          <div class="col-12 d-flex flex-wrap" :class="(tvSerieList == '') ? 'd-none' : 'd-block'">
             <IdCard   v-for="(series, index) in tvSerieList" 
             :key="index" 
             :idCard ="series" 
             />
           </div>
+          <div class="row justify-content-center" :class="(tvSerieList == '') ? 'd-block' : 'd-none'">
+            <h1 class="text-white">There is no series with that name</h1>
+          </div>
         </div>
-        <div class="row justify-content-center" :class="(tvSerieList == '') ? 'd-block' : 'd-none'">
-          <h1 class="text-white">There is no series with that name</h1>
-        </div>
+        
       </div>
       <div v-else>
         <div class="container-fluid">
@@ -109,7 +115,7 @@ export default {
       if(query != ''){
         this.userSearch = query;
       console.log(this.userSearch);
-      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=b9ee4557c1925ad6441d410a26f3ca26&query=${this.userSearch}`)
+      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=b9ee4557c1925ad6441d410a26f3ca26&query=${this.userSearch}&language=it-IT`)
       .then((result) => {
           this.filmList = result.data.results;
           console.log(this.filmList)

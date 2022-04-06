@@ -11,7 +11,8 @@
             <p class="card-text" v-show="idCard.original_title !== idCard.original_title"> {{idCard.original_title}}  {{idCard.original_name}}</p>
             <p class="card-text">vote :{{voteAverage}} </p>
             <p>Lauguage: <flag :iso="flagTransform" /></p>
-            <p>Overview: {{idCard.overview}} </p>
+            <p v-if="idCard.overview != ''">Overview: {{idCard.overview}} </p>
+            <p v-else>Overview: Watch the film/tv-show to find out what it's about </p>
             
         </div>
     </div>
